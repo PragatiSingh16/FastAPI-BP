@@ -21,5 +21,5 @@ class Post(Base):
     deleted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), default=None)
     is_deleted: Mapped[bool] = mapped_column(default=False, index=True)
 
-    author = relationship("User", foreign_keys=[created_by_user_id], back_populates="posts")
+    author = relationship("user", back_populates="posts")
 

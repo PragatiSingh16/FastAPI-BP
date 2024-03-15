@@ -36,7 +36,7 @@ async def write_user(
 
     user_internal = UserCreateInternal(**user_internal_dict)
     created_user: UserRead = await crud_users.create(db=db, object=user_internal)
-    return created_user
+    return created_user  
 
 
 @router.get("/users", response_model=PaginatedListResponse[UserRead])
