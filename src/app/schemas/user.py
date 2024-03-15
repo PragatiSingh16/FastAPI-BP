@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Annotated
+# from .project import Project
 from .post import Post
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 from ..core.schemas import PersistentDeletion, TimestampSchema, UUIDSchema
@@ -14,7 +15,7 @@ class UserBase(BaseModel):
 class User(TimestampSchema, UserBase, UUIDSchema, PersistentDeletion):
     profile_image_url: Annotated[str, Field(default="https://www.profileimageurl.com")]
     hashed_password: str
-    # posts: list[Post] = []
+    posts: list[Post] = []
     is_superuser: bool = False
     tier_id: int | None = None
 
@@ -25,7 +26,7 @@ class UserRead(BaseModel):
     username: Annotated[str, Field(min_length=2, max_length=20, pattern=r"^[a-z0-9]+$", examples=["userson"])]
     email: Annotated[EmailStr, Field(examples=["user.userson@example.com"])]
     profile_image_url: str
-    posts: List[Post] = []
+    posts: list[Post] = []
     tier_id: int | None
 
 

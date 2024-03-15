@@ -15,5 +15,5 @@ class Project(Base):
     project_name = Column(String, index=True)
     project_desc = Column(String, index=True)
     modified_date = Column(String, index=True)
-    owner_id = Column(Integer, ForeignKey("user.uuid"))
-    owner = relationship("User", back_populates="projects")
+    # owner_id = Column(Integer, ForeignKey("user.uuid"))
+    # owner = relationship("User", back_populates="projects")

@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class ProjectBase(BaseModel):
     project_name: str
     project_desc: str | None = None
@@ -13,7 +12,6 @@ class Project(ProjectBase):
 
     class Config:
         orm_mode = True
-
 
 class ProjectCreate(ProjectBase):
     pass
