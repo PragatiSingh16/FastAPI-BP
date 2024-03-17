@@ -26,6 +26,6 @@ class User(Base):
     is_superuser: Mapped[bool] = mapped_column(default=False)
     # projects = relationship("Project", back_populates="owner")
 
-    posts = relationship("post", back_populates="author")
+    posts = relationship("Post", back_populates="author")
 
     tier_id: Mapped[int | None] = mapped_column(ForeignKey("tier.id"), index=True, default=None, init=False)
